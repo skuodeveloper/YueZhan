@@ -60,7 +60,6 @@
                         android:id="@+id/spProvince"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/reset_margin_left"
                         android:layout_marginRight="@dimen/reset_margin_right" />
             </LinearLayout>
 
@@ -89,7 +88,6 @@
                     android:id="@+id/spCity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/reset_margin_left"
                     android:layout_marginRight="@dimen/reset_margin_right"
                     android:textColor="@color/black"
                     android:textSize="@dimen/normal_text_size" />
@@ -120,7 +118,6 @@
                     android:id="@+id/spEstate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/reset_margin_left"
                     android:layout_marginRight="@dimen/reset_margin_right"
                     android:textColor="@color/black"
                     android:textSize="@dimen/normal_text_size" />

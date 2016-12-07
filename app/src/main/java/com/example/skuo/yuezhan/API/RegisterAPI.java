@@ -4,6 +4,7 @@ import com.example.skuo.yuezhan.Entity.BaseEntity;
 import com.example.skuo.yuezhan.Entity.Register.ProvinceList;
 
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -14,7 +15,7 @@ public interface RegisterAPI {
     Observable<BaseEntity<ProvinceList>> httpsGetProvinceRx();
 
     @GET("Register/GetCityListByProvinceID_json/")
-    Observable<BaseEntity<ProvinceList>> httpsGetCityRx();
+    Observable<BaseEntity<ProvinceList>> httpsGetCityRx(@Query("Phone") String Phone);
 
     @GET("Register/GetEstateListByCityID_json/")
     Observable<BaseEntity<ProvinceList>> httpsGetEstateRx();

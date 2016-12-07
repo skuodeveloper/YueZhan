@@ -3,6 +3,8 @@ package com.example.skuo.yuezhan.Module.Register;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -50,13 +52,13 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        initView();
+        initProvince();
     }
 
     /**
-     * 初始化界面
+     * 初始化省份
      */
-    private void initView() {
+    private void initProvince() {
         RetrofitClient.createService(RegisterAPI.class)
                 .httpsGetProvinceRx()
                 .subscribeOn(Schedulers.io())
@@ -89,13 +91,79 @@ public class RegisterActivity extends BaseActivity {
                             ArrayList<Province> provinces = provinceList.getData().getProvinceExs();
 
                             //适配器
-                            provinceAdapter = new ArrayAdapter<Province>(mContext, android.R.layout.simple_spinner_dropdown_item, provinces);
+                            provinceAdapter = new ArrayAdapter<Province>(mContext, R.layout.spinner_item_layout, provinces);
                             //设置样式
-                            provinceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            provinceAdapter.setDropDownViewResource(R.layout.spinner_item_layout);
                             //加载适配器
                             spProvince.setAdapter(provinceAdapter);
+                            //默认选中第一项
+                            spProvince.setSelection(0,true);  //spinner会重新layout
                         }
                     }
                 });
+    }
+
+    /**
+     * 初始化城市
+     */
+    private void initProvince(int provinceid) {
+        RetrofitClient.createService(RegisterAPI.class)
+                .httpsGetProvinceRx()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<BaseEntity<ProvinceList>>() {
+                    @Override
+                    public void onStart() {
+                        super.onStart();
+                        Logger.d();
+                    }
+
+                    @Override
+                    public void onCompleted() {
+                        Logger.d();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Logger.d(e.toString());
+                        NetUtils.checkHttpException(mContext, e, layout);
+                    }
+
+                    @Override
+                    public void onNext(BaseEntity<ProvinceList> provinceList) {
+                        Logger.d();
+
+                        if (provinceList.getData() != null && provinceList.getCode() == 0) {
+                            ArrayAdapter<Province> provinceAdapter;
+
+                            ArrayList<Province> provinces = provinceList.getData().getProvinceExs();
+
+                            //适配器
+                            provinceAdapter = new ArrayAdapter<Province>(mContext, R.layout.spinner_item_layout, provinces);
+                            //设置样式
+                            provinceAdapter.setDropDownViewResource(R.layout.spinner_item_layout);
+                            //加载适配器
+                            spProvince.setAdapter(provinceAdapter);
+                            //默认选中第一项
+                            spProvince.setSelection(0,true);  //spinner会重新layout
+                        }
+                    }
+                });
+    }
+
+    @Override
+    protected void initResAndListener() {
+        spProvince.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent,
+                                               View view, int position, long id) {
+                        Logger.d();
+                    }
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+                        Logger.d();
+                    }
+                });
+
     }
 }

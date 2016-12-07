@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?android:attr/spinnerDropDownItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:singleLine="true"
+    android:gravity="center" />
+
+<!--<CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--android:id="@android:id/text1"-->
+<!--style="?android:attr/spinnerDropDownItemStyle"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="30dp"-->
+<!--android:ellipsize="marquee"-->
+<!--android:gravity="center"-->
+<!--android:singleLine="true" />-->
