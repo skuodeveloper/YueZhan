@@ -22,7 +22,7 @@ import com.example.skuo.yuezhan.Base.BaseActivity;
 import com.example.skuo.yuezhan.Entity.Login.User;
 import com.example.skuo.yuezhan.HttpUtils.RetrofitClient;
 import com.example.skuo.yuezhan.Module.Main.MainActivity;
-import com.example.skuo.yuezhan.Module.Register.RegisterActivity;
+import com.example.skuo.yuezhan.Module.Register.RegisterStep1Activity;
 import com.example.skuo.yuezhan.R;
 import com.example.skuo.yuezhan.Util.Constant;
 import com.example.skuo.yuezhan.Util.Logger;
@@ -131,7 +131,7 @@ public class LoginActivity extends BaseActivity {
                 .subscribe(new Action1<Void>() {
                     @Override
                     public void call(Void aVoid) {
-                        RegisterActivity.launch(LoginActivity.this);
+                        RegisterStep1Activity.launch(LoginActivity.this);
                     }
                 });
 
