@@ -1,0 +1,9 @@
+<application>
+  <component name="FindSettings">
+    <option name="caseSensitive" value="true" />
+    <option name="customScope" value="Directory 'E:\Android\material-intro-master\mylibrary'" />
+    <option name="defaultScopeName" value="Directory 'E:\Android\material-intro-master\mylibrary'" />
+    <option name="CASE_SENSITIVE_SEARCH" value="true" />
+    <option name="SEARCH_SCOPE" value="Directory 'E:\Android\material-intro-master\mylibrary'" />
+  </component>
+</application>
