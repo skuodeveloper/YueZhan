@@ -73,11 +73,11 @@ public class RegisterStep2Activity extends BaseActivity {
     }
 
     /**
-     * 初始化省份
+     * 初始化楼幢
      */
-    private void initBuilding(int buildingID) {
+    private void initBuilding(int EstateID) {
         RetrofitClient.createService(RegisterAPI.class)
-                .httpsGetBuildingRx(buildingID)
+                .httpsGetBuildingExRx(EstateID)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<BaseEntity<BuildingList>>() {

@@ -5,10 +5,10 @@ import java.io.Serializable;
 /**
  * Created by Administrator on 16-12-2.
  */
-public class BaseEntity<E> implements Serializable {
+public class BaseEntity<T> implements Serializable {
     private int StatusCode;
     private String ErrorMsg;
-    private E Data;
+    private T Data;
 
     public int getCode() {
         return StatusCode;
@@ -26,11 +26,11 @@ public class BaseEntity<E> implements Serializable {
         this.ErrorMsg = message;
     }
 
-    public E getData() {
+    public T getData() {
         return Data;
     }
 
-    public void setData(E data) {
+    public void setData(T data) {
         this.Data = data;
     }
 }

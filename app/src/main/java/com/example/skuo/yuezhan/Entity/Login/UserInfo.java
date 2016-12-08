@@ -3,7 +3,7 @@ package com.example.skuo.yuezhan.Entity.Login;
 /**
  * Created by Administrator on 16-11-28.
  */
-public class UserAccount {
+public class UserInfo {
     /// <summary>
     /// 用户ID
     /// </summary>
@@ -83,4 +83,9 @@ public class UserAccount {
     /// 是否认证 0-未认证 1-认证
     /// </summary>
     public int IsAuthen;
+
+    /**
+     * 关系
+     */
+    public String Relations;
 }

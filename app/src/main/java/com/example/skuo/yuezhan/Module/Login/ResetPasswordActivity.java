@@ -20,7 +20,6 @@ import com.example.skuo.yuezhan.API.LoginAPI;
 import com.example.skuo.yuezhan.Base.BaseActivity;
 import com.example.skuo.yuezhan.Base.SMS_Receiver;
 import com.example.skuo.yuezhan.Entity.BaseEntity;
-import com.example.skuo.yuezhan.Entity.Login.User;
 import com.example.skuo.yuezhan.HttpUtils.RetrofitClient;
 import com.example.skuo.yuezhan.R;
 import com.example.skuo.yuezhan.Util.CountDownTimerUtils;
@@ -285,7 +284,7 @@ public class ResetPasswordActivity extends BaseActivity {
     private void getCaptcha() {
         captChhaCode = (int) (Math.random() * 9000 + 1000);
 
-        RetrofitClient.createService(CaptchaAPI.class,"http://106.ihuyi.cn/")
+        RetrofitClient.createService(CaptchaAPI.class, "http://106.ihuyi.cn/")
                 .httpsCaptchaRx(SMS_KEY,
                         SMS_PWD,
                         mEditPhone.getText().toString(),
@@ -333,7 +332,7 @@ public class ResetPasswordActivity extends BaseActivity {
                         MD5.Encryption(mEditNewPassword.getText().toString()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<BaseEntity<User>>() {
+                .subscribe(new Subscriber<BaseEntity>() {
                     @Override
                     public void onStart() {
                         super.onStart();
@@ -352,14 +351,14 @@ public class ResetPasswordActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onNext(BaseEntity<User> returnValue) {
+                    public void onNext(BaseEntity returnValue) {
                         Logger.d();
 
-                        if(returnValue.getCode() == 0){
+                        if (returnValue.getCode() == 0) {
                             Toast.makeText(mContext, getString(R.string.edit_password_success), Toast.LENGTH_SHORT).show();
                             LoginActivity.launch(ResetPasswordActivity.this);
                             finish();
-                        }else{
+                        } else {
                             Toast.makeText(mContext, getString(R.string.edit_password_failed), Toast.LENGTH_SHORT).show();
                         }
                     }

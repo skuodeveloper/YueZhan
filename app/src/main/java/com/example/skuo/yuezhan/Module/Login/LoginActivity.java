@@ -19,7 +19,8 @@ import android.widget.TextView;
 
 import com.example.skuo.yuezhan.API.LoginAPI;
 import com.example.skuo.yuezhan.Base.BaseActivity;
-import com.example.skuo.yuezhan.Entity.Login.User;
+import com.example.skuo.yuezhan.Entity.BaseEntity;
+import com.example.skuo.yuezhan.Entity.Login.UserInfo;
 import com.example.skuo.yuezhan.HttpUtils.RetrofitClient;
 import com.example.skuo.yuezhan.Module.Main.MainActivity;
 import com.example.skuo.yuezhan.Module.Register.RegisterStep1Activity;
@@ -221,7 +222,7 @@ public class LoginActivity extends BaseActivity {
                 .httpsUserInfoRx(username, MD5.Encryption(password))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<User>() {
+                .subscribe(new Subscriber<BaseEntity<UserInfo>>() {
                     @Override
                     public void onStart() {
                         super.onStart();
@@ -242,11 +243,11 @@ public class LoginActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onNext(User user) {
+                    public void onNext(BaseEntity<UserInfo> user) {
                         Logger.d();
                         showProgress(false);
 
-                        if (getString(R.string.login_failed).equals(user.ErrorMsg)) {
+                        if (getString(R.string.login_failed).equals(user.getMessage())) {
                             NetUtils.showSnackBar(relativeLayout, getString(R.string.login_failed));
                         } else {
                             NetUtils.showSnackBar(relativeLayout, getString(R.string.snack_message_login_success));

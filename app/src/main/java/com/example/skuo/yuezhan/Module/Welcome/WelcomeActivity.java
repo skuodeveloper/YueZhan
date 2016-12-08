@@ -9,7 +9,8 @@ import android.widget.ImageView;
 
 import com.example.skuo.yuezhan.API.LoginAPI;
 import com.example.skuo.yuezhan.Base.BaseActivity;
-import com.example.skuo.yuezhan.Entity.Login.User;
+import com.example.skuo.yuezhan.Entity.BaseEntity;
+import com.example.skuo.yuezhan.Entity.Login.UserInfo;
 import com.example.skuo.yuezhan.HttpUtils.RetrofitClient;
 import com.example.skuo.yuezhan.Module.Login.LoginActivity;
 import com.example.skuo.yuezhan.Module.Main.MainActivity;
@@ -76,9 +77,9 @@ public class WelcomeActivity extends BaseActivity {
                         return isLogin;
                     }
                 })
-                .flatMap(new Func1<Void, Observable<User>>() {
+                .flatMap(new Func1<Void, Observable<BaseEntity<UserInfo>>>() {
                     @Override
-                    public Observable<User> call(Void aVoid) {
+                    public Observable<BaseEntity<UserInfo>> call(Void aVoid) {
                         Logger.d("flatMap");
                         String userAccount = (String) SPUtils.get(getApplicationContext(), Constant.USERACCOUNT, "");
                         String userPassword = (String) SPUtils.get(getApplicationContext(), Constant.USERPASSWORD, "");
@@ -88,7 +89,7 @@ public class WelcomeActivity extends BaseActivity {
                 })
                 //.retryWhen(new RetryWithConnectivityIncremental(WelcomeActivity.this, 4, 15, TimeUnit.SECONDS))
                 .observeOn(AndroidSchedulers.mainThread())//最后统一回到UI线程中处理
-                .subscribe(new Subscriber<User>() {
+                .subscribe(new Subscriber<BaseEntity<UserInfo>>() {
                     @Override
                     public void onStart() {
                         Logger.d();
@@ -114,7 +115,7 @@ public class WelcomeActivity extends BaseActivity {
                     }
 
                     @Override
-                    public void onNext(User userAccount) {
+                    public void onNext(BaseEntity<UserInfo> userInfo) {
                         Logger.d();
                     }
                 });
@@ -122,7 +123,7 @@ public class WelcomeActivity extends BaseActivity {
         // * observeOn(): 指定 Subscriber 所运行在的线程。或者叫做事件消费的线程。
     }
 
-    private Observable<User> getUserInfo(String username, String password) {
+    private Observable<BaseEntity<UserInfo>> getUserInfo(String username, String password) {
         password = MD5.Encryption(password);
 
         return RetrofitClient.createService(LoginAPI.class)
