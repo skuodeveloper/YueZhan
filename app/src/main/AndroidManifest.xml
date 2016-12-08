@@ -53,7 +53,8 @@
         <!-- <action android:name="android.provider.Telephony.SMS_RECEIVED" /> -->
         <!-- </intent-filter> -->
         <!-- </receiver> -->
-        <activity android:name=".Module.Register.RegisterStep1Activity"></activity>
+        <activity android:name=".Module.Register.RegisterStep1Activity" />
+        <activity android:name=".Module.Register.RegisterStep2Activity"></activity>
     </application>
 
 </manifest>
