@@ -56,4 +56,7 @@
     <string name="province">省份</string>
     <string name="city">城市</string>
     <string name="estate">小区</string>
+    <string name="building">楼幢</string>
+    <string name="cell">单元</string>
+    <string name="house">住户</string>
 </resources>
