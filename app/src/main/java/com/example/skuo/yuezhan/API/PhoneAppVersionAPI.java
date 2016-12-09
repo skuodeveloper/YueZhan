@@ -11,7 +11,7 @@ import rx.Observable;
 /**
  * Created by Administrator on 16-12-9.
  */
-public interface PhoneAppVersion {
+public interface PhoneAppVersionAPI {
     /**
      * 获取APP最新版本号，带是否需强制更新信息
      * @return

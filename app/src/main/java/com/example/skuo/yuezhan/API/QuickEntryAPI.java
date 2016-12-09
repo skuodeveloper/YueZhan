@@ -10,7 +10,7 @@ import rx.Observable;
 /**
  * Created by Administrator on 16-12-9.
  */
-public interface QuickEntry {
+public interface QuickEntryAPI {
     /**
      * 可变模块设置
      * @param EstateID
