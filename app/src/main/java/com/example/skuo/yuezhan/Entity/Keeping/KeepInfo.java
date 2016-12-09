@@ -12,20 +12,20 @@ public class KeepInfo {
     /**
      * 服务名称
      */
-    String Name;
+    String Title;
+
+    /**
+     * 服务内容
+     */
+    String Caption;
 
     /**
      * 服务价格
      */
-    double Price;
-
-    /**
-     * 计费单位
-     */
-    String Unit;
+    float Price;
 
     /**
      * 服务描述
      */
-    String Description;
+    String Remark;
 }

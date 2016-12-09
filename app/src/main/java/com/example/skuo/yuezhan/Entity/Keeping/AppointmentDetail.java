@@ -1,9 +1,11 @@
 package com.example.skuo.yuezhan.Entity.Keeping;
 
+import java.util.Date;
+
 /**
- * Created by Administrator on 16-12-8.
+ * Created by Administrator on 16-12-9.
  */
-public class KeepingAppointment {
+public class AppointmentDetail {
     /// <summary>
     /// 预约ID
     /// </summary>
@@ -12,12 +14,7 @@ public class KeepingAppointment {
     /// <summary>
     /// 预约时间
     /// </summary>
-    public String AppointmentTime;
-
-    /// <summary>
-    /// 预约用户ID
-    /// </summary>
-    public int UserAccountID;
+    public Date AppointmentTime;
 
     /// <summary>
     /// 联系人
@@ -40,32 +37,22 @@ public class KeepingAppointment {
     public int Status;
 
     /// <summary>
-    /// 标题
+    /// 付款状态
     /// </summary>
-    public String Title;
+    public int PayStatus;
 
     /// <summary>
-    /// 姓名
+    /// 状态
     /// </summary>
-    public String Name;
+    public float 价格;
 
     /// <summary>
-    /// 开始时间
+    /// 时间
     /// </summary>
-    public String StartTime;
+    public int Duration;
 
     /// <summary>
-    /// 结束时间
+    /// 备注
     /// </summary>
-    public String EndTime;
-
-    /// <summary>
-    /// 价格
-    /// </summary>
-    public float Price;
-
-    /// <summary>
-    /// 星级评价
-    /// </summary>
-    public int StarLevel;
+    public String Remark;
 }
