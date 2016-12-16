@@ -59,4 +59,36 @@
     <string name="building">楼幢</string>
     <string name="cell">单元</string>
     <string name="house">住户</string>
+
+
+    <array name="country">
+        <item>a0</item>
+        <item>a1</item>
+        <item>a2</item>
+        <item>a3</item>
+        <item>a4</item>
+        <item>a5</item>
+        <item>b6</item>
+        <item>b7</item>
+        <item>c8</item>
+        <item>c9</item>
+        <item>d10</item>
+        <item>d11</item>
+        <item>d12</item>
+        <item>d13</item>
+        <item>e14</item>
+        <item>e15</item>
+        <item>e16</item>
+        <item>e17</item>
+        <item>f18</item>
+        <item>f19</item>
+        <item>f20</item>
+        <item>f21</item>
+        <item>f22</item>
+        <item>f23</item>
+        <item>f24</item>
+        <item>f25</item>
+        <item>f26</item>
+
+    </array>
 </resources>

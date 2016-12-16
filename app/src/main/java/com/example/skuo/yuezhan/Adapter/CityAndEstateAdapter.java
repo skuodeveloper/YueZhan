@@ -1,6 +1,6 @@
 package com.example.skuo.yuezhan.Adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,17 +16,17 @@ import se.emilsjolander.stickylistheaders.StickyListHeadersAdapter;
 
 public class CityAndEstateAdapter extends BaseAdapter implements StickyListHeadersAdapter {
 
-    private Activity mContext;
+    private Context mContext;
 
     private LayoutInflater inflater;
 
     private List<CityAndEstate.EstateInfosBean> mCELists;
 
-    public CityAndEstateAdapter(Activity context, List<CityAndEstate.EstateInfosBean> mPlanDetails) {
+    public CityAndEstateAdapter(Context context, List<CityAndEstate.EstateInfosBean> mCELists) {
         mContext = context;
 
         inflater = LayoutInflater.from(context);
-        this.mCELists = mPlanDetails;
+        this.mCELists = mCELists;
     }
 
     @Override

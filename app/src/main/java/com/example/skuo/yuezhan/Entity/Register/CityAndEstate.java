@@ -8,7 +8,7 @@ import java.util.List;
 public class CityAndEstate {
 
     private int TotalCount;
-    private List<EstateInfosBean> EstateInfos;
+    private List<EstateInfosBean> EstatesNew;
 
     public int getTotalCount() {
         return TotalCount;
@@ -19,11 +19,11 @@ public class CityAndEstate {
     }
 
     public List<EstateInfosBean> getEstateInfos() {
-        return EstateInfos;
+        return EstatesNew;
     }
 
     public void setEstateInfos(List<EstateInfosBean> EstateInfos) {
-        this.EstateInfos = EstateInfos;
+        this.EstatesNew = EstateInfos;
     }
 
     public static class EstateInfosBean {

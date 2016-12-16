@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.example.skuo.yuezhan.API.RegisterAPI;
+import com.example.skuo.yuezhan.Adapter.CityAndEstateAdapter;
 import com.example.skuo.yuezhan.Base.BaseActivity;
 import com.example.skuo.yuezhan.Base.YueZhanApplication;
 import com.example.skuo.yuezhan.Entity.BaseEntity;
@@ -31,12 +32,15 @@ import rx.schedulers.Schedulers;
 import se.emilsjolander.stickylistheaders.StickyListHeadersListView;
 
 public class RegisterStepActivity extends BaseActivity {
+    private final int SDK_PERMISSION_REQUEST = 100;
+
     @BindView(R.id.layout)
     RelativeLayout layout;
 
-    private final int SDK_PERMISSION_REQUEST = 100;
+    @BindView(R.id.list)
+    StickyListHeadersListView list;
 
-    private StickyListHeadersListView list;
+    private CityAndEstateAdapter cityAndEstateAdapter;
     private CityAndEstate mEstateListDatas;
 
     private LocationService locationService;
@@ -61,9 +65,11 @@ public class RegisterStepActivity extends BaseActivity {
         // after andrioid m,must request Permiision on runtime
         getPersimmions();
 
-        list = (StickyListHeadersListView) findViewById(R.id.list);
-
         initDatas();
+
+//        list.setOnItemClickListener(new OnPlanItemClick());
+//        list.setOnItemLongClickListener(new OnPlanItemLongClick());
+
     }
 
     /**
@@ -97,7 +103,8 @@ public class RegisterStepActivity extends BaseActivity {
                         Logger.d();
                         mEstateListDatas.setEstateInfos(estateAndCityList.getData().getEstateInfos());
 
-
+                        cityAndEstateAdapter = new CityAndEstateAdapter(mContext, mEstateListDatas.getEstateInfos());
+                        list.setAdapter(cityAndEstateAdapter);
                     }
                 });
     }

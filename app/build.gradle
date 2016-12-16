@@ -108,4 +108,5 @@ dependencies {
     compile files('libs/IndoorscapeAlbumPlugin.jar')
 
     compile 'se.emilsjolander:stickylistheaders:2.7.0'
+    compile 'com.baoyz.swipemenulistview:library:1.3.0'
 }
