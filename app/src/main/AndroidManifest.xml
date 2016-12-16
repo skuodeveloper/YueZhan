@@ -22,6 +22,10 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_LOGS" />
 
+    <!--定位权限-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+
     <application
         android:name=".Base.YueZhanApplication"
         android:allowBackup="true"
@@ -29,7 +33,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Module.Welcome.WelcomeActivity">
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2"></action>
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="XGidh1e3gWU1snA5Hqxtq7preTvQe0A7" />  <!--http://lbsyun.baidu.com/apiconsole/key-->
+
+        <!--<activity android:name=".Module.Welcome.WelcomeActivity">-->
+        <activity android:name=".Module.Register.RegisterStepActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +72,8 @@
         <!-- </intent-filter> -->
         <!-- </receiver> -->
         <activity android:name=".Module.Register.RegisterStep1Activity" />
-        <activity android:name=".Module.Register.RegisterStep2Activity"></activity>
+        <activity android:name=".Module.Register.RegisterStep2Activity" />
+        <!--<activity android:name=".Module.Register.RegisterStepActivity"></activity>-->
     </application>
 
 </manifest>

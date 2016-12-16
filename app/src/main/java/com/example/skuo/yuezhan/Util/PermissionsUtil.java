@@ -57,10 +57,9 @@ public class PermissionsUtil {
     private static String[] PERMISSIONS_GROUP = {
             Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.INTERNET, Manifest.permission.CAMERA,
-            Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_WIFI_STATE,
-            Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_CONTACTS,
-            Manifest.permission.SEND_SMS, Manifest.permission.CALL_PHONE,
-            Manifest.permission.RECEIVE_SMS
+            Manifest.permission.ACCESS_NETWORK_STATE, Manifest.permission.ACCESS_WIFI_STATE, Manifest.permission.WRITE_CONTACTS,
+            Manifest.permission.SEND_SMS, Manifest.permission.CALL_PHONE,Manifest.permission.RECEIVE_SMS,
+            Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION
     };
 
     public static void checkAndRequestPermissions(final Activity activity) {

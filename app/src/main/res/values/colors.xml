@@ -361,4 +361,8 @@
     <color name="albumback">#E1E0DE</color>
     <color name="plugin_camera_black">#000000</color>
     <color name="none_color">#00000000</color>
+
+    <color name="common_bg">#FAFAFA</color>
+    <color name="shadow">#AAEBEBEB</color>
+    <color name="theme_gray">#646464</color>
 </resources>

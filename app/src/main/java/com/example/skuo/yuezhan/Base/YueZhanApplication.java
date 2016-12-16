@@ -1,9 +1,13 @@
 package com.example.skuo.yuezhan.Base;
 
 import android.app.Application;
+import android.app.Service;
 import android.content.Context;
 import android.os.StrictMode;
+import android.os.Vibrator;
 
+import com.baidu.mapapi.SDKInitializer;
+import com.example.skuo.yuezhan.Location.Service.LocationService;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
 import com.squareup.leakcanary.RefWatcher;
@@ -14,10 +18,11 @@ import com.tencent.bugly.crashreport.CrashReport;
  */
 public class YueZhanApplication extends Application {
     private static final String TAG = "YueZhanApplication";
-
     private static YueZhanApplication instance;
-
     private RefWatcher refWatcher;
+
+    public LocationService locationService;
+    private Vibrator mVibrator;
 
     @Override
     public void onCreate() {
@@ -42,6 +47,12 @@ public class YueZhanApplication extends Application {
                                 Stetho.defaultInspectorModulesProvider(this))
                         .build());
 
+        /***
+         * 初始化百度地图定位sdk
+         */
+        locationService = new LocationService(getApplicationContext());
+        mVibrator =(Vibrator)getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+        SDKInitializer.initialize(getApplicationContext());
     }
 
 

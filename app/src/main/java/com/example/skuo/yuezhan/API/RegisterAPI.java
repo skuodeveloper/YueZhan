@@ -4,6 +4,7 @@ import com.example.skuo.yuezhan.Entity.BaseEntity;
 import com.example.skuo.yuezhan.Entity.Register.BuildingList;
 import com.example.skuo.yuezhan.Entity.Register.CellList;
 import com.example.skuo.yuezhan.Entity.Register.CityList;
+import com.example.skuo.yuezhan.Entity.Register.CityAndEstate;
 import com.example.skuo.yuezhan.Entity.Register.EstateList;
 import com.example.skuo.yuezhan.Entity.Register.GroupList;
 import com.example.skuo.yuezhan.Entity.Register.HouseList;
@@ -45,6 +46,14 @@ public interface RegisterAPI {
      */
     @GET("Register/GetEstateListByCityID_json/")
     Observable<BaseEntity<EstateList>> httpsGetEstateRx(@Query("CityID") int CityID);
+
+    /**
+     * 获取所有小区列表
+     *
+     * @return
+     */
+    @GET("Register/GetAllEstates_Json/")
+    Observable<BaseEntity<CityAndEstate>> httpsGetAllEstatesRx();
 
     /**
      * 根据小区ID获取楼幢列表(返回“组团名称/楼幢名称”)
