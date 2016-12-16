@@ -62,7 +62,7 @@ public class RegisterStepActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         context = this;
 
-        // after andrioid m,must request Permiision on runtime
+        // after andrioid m,must request Permiision on runtimed
         getPersimmions();
 
         initDatas();
